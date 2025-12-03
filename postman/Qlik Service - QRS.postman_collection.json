@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "5c5382e3-87a9-46e0-8701-623b93bac4eb",
+		"name": "Qlik Service - QRS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User based on filter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n\t\"command\": \"task\"\n}\n\t"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get App With Filter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"app/full?filter=id eq 1ee00e03-0fc7-442d-9955-4df532dbb3b6\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Data Connection with Filter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"dataconnection/count?filter=name eq '03.dbi-bexio-sales'\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reload App",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"app/1ee00e03-0fc7-442d-9955-4df532dbb3b6/reload\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Replace App",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"app/1ee00e03-0fc7-442d-9955-4df532dbb3b6/replace?app=6f9b72ff-97ea-4440-8a1a-87fa4ae0f538\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/put",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete App",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"app/6f9b72ff-97ea-4440-8a1a-87fa4ae0f538\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Copy App",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"app/1ee00e03-0fc7-442d-9955-4df532dbb3b6/copy\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Selection Object",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n     \"command\": \"selection\",\n     \"payload\":  {\"items\":[{\"type\":\"App\",\"objectID\":\"1ee00e03-0fc7-442d-9955-4df532dbb3b6\"}]}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change ownership",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"userInfo\":{\n      \"userDirectory\":\"INTERNAL\",\n      \"userId\":\"sa_api\"\n   },\n   \"qsInfo\":{\n      \"host\":\"qs-i-dev.databridge.ch\",\n      \"port\":4242\n   },\n   \"command\":\"selection/ea73975a-5d0a-4b60-8932-9956ee5793a6/app/synthetic\",\n   \"payload\":{\n      \"properties\":[\n         {\n            \"name\":\"owner\",\n            \"value\":\"50b1b378-ba2d-4b0e-9687-41f34dfa82fe\",\n            \"valueIsModified\":true\n         }\n      ],\n      \"type\":\"App\",\n      \"LatestModifiedDate\":\"2020-11-11T19:27:31.377Z\"\n   }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/qrs/put",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qrs",
+						"put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get App User Access Rights Endpoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"userInfo\": {\n        \"userDirectory\": \"INTERNAL\",\n        \"userId\": \"sa_api\"\n     },\n     \"qsInfo\":{\n     \t\"host\": \"qs-i-dev.databridge.ch\",\n     \t\"port\": 4242\n     },\n  \"appId\": \"ec3e924c-2eab-4a2e-b9c6-08699b78c6da\",\n  \"userDirectories\": [\n    \"VM-I-QS-DEV\"\n  ]\n}\n\n\t"
+				},
+				"url": {
+					"raw": "https://qlik-service-staging.databridge.ch/qrs/getAccessRights",
+					"protocol": "https",
+					"host": [
+						"qlik-service-staging",
+						"databridge",
+						"ch"
+					],
+					"path": [
+						"qrs",
+						"getAccessRights"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "490d3447-fd6d-41bb-a764-f69ce228395a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "23798fc1-5b58-4497-8829-3e4cc0f4920b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

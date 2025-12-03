@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "83791932-489b-47d3-bcdd-ff951d3d999e",
+		"name": "Qlik Service - QIX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Qlik Data Interface",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"userInfo\":{\n      \"userDirectory\":\"VM-I-QS-DEV\",\n      \"userId\":\"patric.amatulli\"\n   },\n   \"qsInfo\":{\n      \"host\":\"qs-i-dev.databridge.ch\",\n      \"port\":4747\n   },\n   \"qixSelections\":{\n      \"qixFields\":[\n         {\n            \"qixField\":{\n               \"name\":\"Type\",\n               \"values\":[\n                  {\n                     \"qText\":\"U\"\n                  }\n               ]\n            }\n         }\n      ]\n   },\n   \"raw\":true,\n   \"includeTotal\":true,\n   \"includeHeader\":true,\n   \"includeMeta\":true,\n   \"includeData\":true\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/qix/interface/object/data/ead9360d-d316-4bea-9428-ad4749d54ed0/DSgLYZJ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qix",
+						"interface",
+						"object",
+						"data",
+						"ead9360d-d316-4bea-9428-ad4749d54ed0",
+						"DSgLYZJ"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9077353c-e44b-48d7-943a-fdda7b9ec20b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8602578f-2f82-495c-bd47-7246744aa4d3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

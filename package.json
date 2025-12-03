@@ -1,0 +1,49 @@
+{
+    "name": "sih-atellica-qlik-service",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prestart": "npm run tsc",
+        "test": "jest",
+        "docker-dev": "npm install && npm run dev",
+        "dev": "tsc-watch --onSuccess \"node build/index.js\"",
+        "compile-run": "npm run tsc && node build/index.js",
+        "build": "npm run tsc",
+        "start": "node build/index.js",
+        "tsc": "tsc",
+        "win-svc-install": "npm run tsc && node ./build/service-install.js",
+        "win-svc-uninstall": "node ./build/service-uninstall.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/boom": "^10.0.1",
+        "@hapi/hapi": "^21.3.0",
+        "@hapi/inert": "^7.1.0",
+        "@hapi/vision": "^7.0.3",
+        "axios": "^1.5.1",
+        "dotenv": "^10.0.0",
+        "enigma.js": "^2.7.0",
+        "hapi-decorators": "^2.0.0",
+        "hapi-dev-errors": "^4.0.0",
+        "hapi-swagger": "^17.2.1",
+        "joi": "^17.4.2",
+        "pg": "^8.7.1",
+        "qrs-interact": "^6.1.0",
+        "reflect-metadata": "^0.1.13",
+        "tsyringe": "^4.4.0",
+        "winston": "^3.3.3",
+        "winston-daily-rotate-file": "^4.5.5",
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "@types/node": "^13.13.30",
+        "tsc-watch": "^6.0.4",
+        "typescript": "^5.3.3"
+    },
+    "engines": {
+        "npm": ">=9.0.0 <10.0.0",
+        "node": ">=16.5.0 <21.0.0"
+    }
+}

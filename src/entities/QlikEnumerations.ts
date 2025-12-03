@@ -1,0 +1,15 @@
+export enum QlikTaskStatus {
+    NeverStarted = 0,
+    Triggered = 1,
+    Started = 2,
+    Queued = 3,
+    AbortInitiated = 4,
+    Aborting = 5,
+    Aborted = 6,
+    FinishedSuccess = 7,
+    FinishedFail = 8,
+    Skipped = 9,
+    Retry = 10,
+    Error = 11,
+    Reset = 12,
+}

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./build",
+        "lib": ["dom","ES2020.Promise"],
+        "module": "commonjs",
+        "target": "ES2019",
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": false,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["*", "./custom_typings/*"]
+        }
+    },
+    "include": ["src/**/*", "custom_typings/index.d.ts"],
+    "exclude": ["node_modules"]
+}
