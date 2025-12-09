@@ -9,11 +9,11 @@ export class ConfigService {
     private static DEFAULTS = {
         HOST: '0.0.0.0',
         PORT: 8080,
-        TITLE: 'Qlik Service',
+        TITLE: 'SIH Qlik Service',
         SSL: false,
         VERSION: 'v1',
 
-        APP_NAME: 'DB-Q-SERVICE',
+        APP_NAME: 'SIH-QLIK-SERVICE',
 
         QS_CERT_TYPE: 'ca',  // ca | pfx
         QS_CA_PATH:'../../certificates/qlik/root.pem',
@@ -48,7 +48,7 @@ export class ConfigService {
         DB_PORT: '5432',
         DB_USER: 'root',
         DB_PASS: 'root',
-        DB_DATABASE: 'databridge_dev',
+        DB_DATABASE: 'sih_qplus',
         DB_SSL: false,
 
         QLIK_CERT_PASSPHRASE: null,

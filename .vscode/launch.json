@@ -4,12 +4,37 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug Project",
-            "program": "${workspaceFolder}\\src\\index.ts",
+            "name": "Debug Qlik Service with ts-node (Direct TypeScript)",
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "args": ["${workspaceFolder}/src/index.ts"],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Qlik Service (Compiled)",
+            "program": "${workspaceFolder}/src/index.ts",
             "preLaunchTask": "npm: build",
             "sourceMaps": true,
             "smartStep": true,
             "internalConsoleOptions": "openOnSessionStart",
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Qlik Service",
+            "port": 9229,
+            "restart": true,
+            "sourceMaps": true,
             "outFiles": [
                 "${workspaceFolder}/build/**/*.js"
             ]
