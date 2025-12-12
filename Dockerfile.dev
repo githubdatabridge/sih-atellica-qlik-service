@@ -5,5 +5,6 @@ COPY ./sih-atellica-qlik-service/package*.json ./
 RUN npm install npm -g
 RUN npm install
 COPY ./sih-atellica-qlik-service .
+COPY ./certificates ../certificates
 EXPOSE 8080
 CMD ["npm", "run", "docker-dev"]

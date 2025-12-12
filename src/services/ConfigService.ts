@@ -30,7 +30,7 @@ export class ConfigService {
         API_KEY:
         'f919861d-dda2-442e-b238-fee4f417445ba f919861d-dda2-442e-b238-fee4f417445bc',
 
-        LOG_TYPE: null, // file | database | null => null == both
+        LOG_TYPE: 'file', // file | database | null => null == both
         LOG_DIR: 'logs',
         LOG_LEVEL: 'info',
         LOG_CORE_FILE: 'core.log',
@@ -52,6 +52,10 @@ export class ConfigService {
         DB_SSL: false,
 
         QLIK_CERT_PASSPHRASE: null,
+
+        SERVER_CERT_PATH: '..\\certificates\\server\\',
+        SERVER_CERT_FILE_NAME:'server.crt',
+        SERVER_KEY_FILE_NAME:'server.key'
     };
 
     constructor() {
