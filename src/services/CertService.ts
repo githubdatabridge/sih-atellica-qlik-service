@@ -26,13 +26,13 @@ export class CertService {
 
             this.cert = {
                 type: 'pfx',
-                pfx: readFileSync(path.resolve(__dirname, pfxPath)),
+                pfx: readFileSync(path.resolve(process.cwd(), pfxPath)),
                 passphrase: pfxPassphrase,
             };
 
             this.certPath = {
                 type: 'pfx',
-                pfxPath: path.resolve(__dirname, pfxPath),
+                pfxPath: path.resolve(process.cwd(), pfxPath),
                 passphrase: pfxPassphrase,
             };
         } else if (certType === 'ca') {
@@ -42,7 +42,7 @@ export class CertService {
 
             let ca: Buffer;
             try {
-                ca = readFileSync(path.resolve(__dirname, caPath));
+                ca = readFileSync(path.resolve(process.cwd(), caPath));
             } catch (error) {
                 this.logService
                     .get()
@@ -52,15 +52,15 @@ export class CertService {
             this.cert = {
                 type: 'ca',
                 ca,
-                key: readFileSync(path.resolve(__dirname, keyPath)),
-                cert: readFileSync(path.resolve(__dirname, certPath)),
+                key: readFileSync(path.resolve(process.cwd(), keyPath)),
+                cert: readFileSync(path.resolve(process.cwd(), certPath)),
             };
 
             this.certPath = {
                 type: 'ca',
-                caPath: path.resolve(__dirname, caPath),
-                keyPath: path.resolve(__dirname, keyPath),
-                certPath: path.resolve(__dirname, certPath),
+                caPath: path.resolve(process.cwd(), caPath),
+                keyPath: path.resolve(process.cwd(), keyPath),
+                certPath: path.resolve(process.cwd(), certPath),
             };
         } else {
             this.logService

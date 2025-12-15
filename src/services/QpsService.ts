@@ -141,14 +141,23 @@ export class QpsService {
             const qlikSessionUrl = `${qsInfo.ssl ? 'https' : 'http'}://${
                 qsInfo.host
             }:${qsInfo.qpsPort}/qps/${qsInfo.vp ? qsInfo.vp + '/' : ''}`;
+
+            this.logService.get().debug(`[QpsService.getSession] URL: ${qlikSessionUrl}session/${id}`);
+            this.logService.get().debug(`[QpsService.getSession] qsInfo: ${JSON.stringify(qsInfo)}`);
+
             return new Promise((resolve, reject) => {
                 this.qlikRequest(qlikSessionUrl + `session/${id}`, 'GET', null)
                     .then((res) => {
+                        this.logService.get().debug(`[QpsService.getSession] Success: ${JSON.stringify(res.data)}`);
                         resolve(res.data);
                     })
-                    .catch((error) => reject(new Boom(error)));
+                    .catch((error) => {
+                        this.logService.get().error(`[QpsService.getSession] Error: ${error.message}`);
+                        reject(new Boom(error));
+                    });
             });
         } catch (error) {
+            this.logService.get().error(`[QpsService.getSession] Exception: ${error.message}`);
             throw new Boom(error);
         }
     }
@@ -205,6 +214,9 @@ export class QpsService {
         const qlikUrl = `${url}?xrfkey=${qlikXrfKey}`;
         const certs = this.certService.getCert;
 
+        this.logService.get().debug(`[QpsService.qlikRequest] Request: ${method} ${qlikUrl}`);
+        this.logService.get().debug(`[QpsService.qlikRequest] Cert type: ${certs?.type || 'unknown'}`);
+
         try {
             const agent = new https.Agent({
                 rejectUnauthorized: false,
@@ -222,6 +234,14 @@ export class QpsService {
             });
             return await res;
         } catch (error) {
+            this.logService.get().error(`[QpsService.qlikRequest] Failed: ${error.message}`);
+            if (error.response) {
+                this.logService.get().error(`[QpsService.qlikRequest] Response status: ${error.response.status}`);
+                this.logService.get().error(`[QpsService.qlikRequest] Response data: ${JSON.stringify(error.response.data)}`);
+            }
+            if (error.code) {
+                this.logService.get().error(`[QpsService.qlikRequest] Error code: ${error.code}`);
+            }
             throw new Boom(error);
         }
     }
