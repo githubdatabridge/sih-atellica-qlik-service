@@ -8,8 +8,10 @@ const config = container.resolve(ConfigService);
 @injectable()
 @autoInjectable()
 export class QsUserLicenseDeallocationAction extends BaseAction<Entities.QlikUserActionResponse> {
-    constructor(private qrsService?: QrsService,
-        private logService?: LogService) {
+    constructor(
+        private qrsService?: QrsService,
+        private logService?: LogService
+    ) {
         super();
     }
 

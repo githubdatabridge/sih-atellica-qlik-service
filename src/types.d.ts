@@ -1,3 +1,2 @@
 // @ts-ignore
-declare module 'enigma.js'
-
+declare module 'enigma.js';

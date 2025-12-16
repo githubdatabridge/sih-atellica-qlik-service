@@ -43,7 +43,9 @@ export class QixService {
                     }),
             };
 
-            return await enigma.create(config) as unknown as EngineAPI.IGlobal;
+            return (await enigma.create(
+                config
+            )) as unknown as EngineAPI.IGlobal;
         } catch (error) {
             throw new Lib.Errors.InternalError('Internal Error', error);
         }
@@ -90,7 +92,7 @@ export class QixService {
         qixLayout: EngineAPI.IGenericHyperCubeLayout,
         fetchLimit: number
     ) {
-        let qData = [];
+        const qData = [];
         try {
             const totalWidth: number = qixLayout.qHyperCube.qSize.qcx;
             const totalHeight: number = qixLayout.qHyperCube.qSize.qcy;
@@ -129,7 +131,7 @@ export class QixService {
         qixLayout: EngineAPI.IGenericListLayout,
         fetchLimit: number = 10000
     ) {
-        let qData = [];
+        const qData = [];
         try {
             const totalWidth: number = qixLayout.qListObject.qSize.qcx;
             const totalHeight: number = qixLayout.qListObject.qSize.qcy;
@@ -170,19 +172,18 @@ export class QixService {
         qixDoc: EngineAPI.IApp;
         qixSelections: any;
     }) {
-        let qSelectResult = [];
+        const qSelectResult = [];
         let qField = null;
         try {
             await Promise.all(
                 qixSelections.qixFields.map(async (selection) => {
-                    let qResult;
                     qField = await qixDoc.getField(
                         selection.qixField.name,
                         selection.qixField.state
                             ? selection.qixField.state
                             : '$'
                     );
-                    qResult = await qField.selectValues(
+                    const qResult = await qField.selectValues(
                         selection.qixField.values,
                         selection.qixField.toggleMode,
                         selection.qixField.softLock

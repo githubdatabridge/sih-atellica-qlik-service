@@ -1,18 +1,18 @@
 import { injectable } from 'tsyringe';
-import { Boom } from '@hapi/boom';
-import * as utils from '../utils/common';
 import { Readable } from 'stream';
 import * as fs from 'fs';
 import { LogService } from './LogService';
 
 @injectable()
 export class UtilsService {
-    constructor(private logService?:LogService) {}
+    constructor(private logService?: LogService) {}
 
     saveArrayAsFile(arrayBuffer, filePath) {
         fs.writeFile(filePath, Buffer.from(arrayBuffer), 'binary', (err) => {
             if (err) {
-                this.logService.get().error('There was an error writing the image');
+                this.logService
+                    .get()
+                    .error('There was an error writing the image');
             } else {
                 this.logService.get().info('Written File :' + filePath);
             }
@@ -21,8 +21,8 @@ export class UtilsService {
 
     readFileStream(stream: Readable) {
         let fileBuffer;
-        let chunks = [];
-        let dummy = [];
+        const chunks = [];
+        const dummy = [];
         return new Promise((resolve) => {
             stream.on('readable', () => {
                 let chunk;

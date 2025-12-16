@@ -15,7 +15,8 @@ const generateHash = (params: string | string[]): number => {
 };
 
 const generateXrfkey = (): string => {
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const chars =
+        '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const string_length = 16;
     let value = '';
 
@@ -27,7 +28,12 @@ const generateXrfkey = (): string => {
     return value;
 };
 
-const buildConditions = (field: string, values: string[], qOp: string, logicOp: string): string | null => {
+const buildConditions = (
+    field: string,
+    values: string[],
+    qOp: string,
+    logicOp: string
+): string | null => {
     const conditions: string[] = [];
 
     for (const value of values) {
@@ -45,13 +51,8 @@ const lookupJson = <T>(o: T, prop: keyof T): any[] => {
     return res;
 };
 
-export {
-    generateHash,
-    generateXrfkey,
-    buildConditions,
-    lookupJson,
-};
+export { generateHash, generateXrfkey, buildConditions, lookupJson };
 
-export function dateFromQlikNumber(qNum: number): void {
+export function dateFromQlikNumber(_qNum: number): void {
     throw new Error('Function not implemented.');
 }

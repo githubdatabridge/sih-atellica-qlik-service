@@ -1,4 +1,4 @@
-import { QlikUserInfo } from ".";
+import { QlikUserInfo } from '.';
 
 export interface QsAppCopyDesignActionRequest {
     qsHost: string;

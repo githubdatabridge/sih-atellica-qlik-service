@@ -1,7 +1,10 @@
 import * as Lib from '../../lib';
 
 export class DbService {
-    constructor(protected host: string, protected port: number) { }
+    constructor(
+        protected host: string,
+        protected port: number
+    ) {}
 
     protected getUrl() {
         return `${this.host}:${this.port}`;

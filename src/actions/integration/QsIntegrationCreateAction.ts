@@ -235,7 +235,7 @@ const createEtlQlikApp = async (
         eventType: 0,
         startDate: new Date(
             new Date().setHours(23, 59, 59, 999) +
-            Math.floor(Math.random() * 360) * 60000
+                Math.floor(Math.random() * 360) * 60000
         )
             .toISOString()
             .replace('Z', ''),

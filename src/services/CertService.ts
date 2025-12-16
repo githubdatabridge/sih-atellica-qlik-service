@@ -14,11 +14,11 @@ export class CertService {
     ) {}
 
     public init() {
-        var certType = this.configService.get('QS_CERT_TYPE');
+        const certType = this.configService.get('QS_CERT_TYPE');
 
         if (certType === 'pfx') {
-            var pfxPath = this.configService.get('QS_PFX_PATH');
-            var pfxPassphrase = this.configService.get('QS_PFX_PASS');
+            const pfxPath = this.configService.get('QS_PFX_PATH');
+            const pfxPassphrase = this.configService.get('QS_PFX_PASS');
 
             if (!pfxPath) {
                 this.logService.get().error(`pfxPath [${pfxPath}] invalid.`);
@@ -36,9 +36,9 @@ export class CertService {
                 passphrase: pfxPassphrase,
             };
         } else if (certType === 'ca') {
-            var caPath = this.configService.get('QS_CA_PATH');
-            var keyPath = this.configService.get('QS_KEY_PATH');
-            var certPath = this.configService.get('QS_CERT_PATH');
+            const caPath = this.configService.get('QS_CA_PATH');
+            const keyPath = this.configService.get('QS_KEY_PATH');
+            const certPath = this.configService.get('QS_CERT_PATH');
 
             let ca: Buffer;
             try {

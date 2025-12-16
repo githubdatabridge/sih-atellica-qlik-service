@@ -27,7 +27,7 @@ export class PingController extends BaseController {
         },
     })
     @get('/')
-    ping(request: Request) {
+    ping(_request: Request) {
         return {
             ping: this.pongService.pong(),
         };

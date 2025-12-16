@@ -1,4 +1,4 @@
-class UserInfo {
+export class UserInfo {
     private _userId: string;
     private _userDirectory: string;
     private _attributes: any[];

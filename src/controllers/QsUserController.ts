@@ -1,4 +1,4 @@
-import { controller, options, get, del, post } from 'hapi-decorators';
+import { controller, options, del, post } from 'hapi-decorators';
 import { BaseController } from './BaseController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
 import { autoInjectable } from 'tsyringe';
@@ -400,7 +400,7 @@ export class QsUserController extends BaseController {
                     },
                     404: {
                         description: 'Resource not found',
-                    }
+                    },
                 },
             },
         },

@@ -54,7 +54,6 @@ export class QsIntegrationController extends BaseController {
     async create(request: Request) {
         const requestData =
             request.payload as Entities.QlikIntegrationCreateRequest;
-        requestData.extId = requestData.extId;
 
         return await this.qsIntegrationCreateAction.run(requestData);
     }
@@ -96,9 +95,8 @@ export class QsIntegrationController extends BaseController {
     @del('/')
     @Lib.Errors.handleError
     async delete(request: Request) {
-        const requestData =
+        const _requestData =
             request.payload as Entities.QlikUIntegrationRemoveActionRequest;
-        requestData.extId = requestData.extId;
 
         return true;
     }

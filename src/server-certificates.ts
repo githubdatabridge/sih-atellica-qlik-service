@@ -57,7 +57,9 @@ const getTokenCertificates = (): TokenCertificates<string> => {
                 encoding: 'utf8',
             });
         } catch (error) {
-            logger.get().warn(`Missing JWT Token certs in ./build/certificates/data`);
+            logger
+                .get()
+                .warn(`Missing JWT Token certs in ./build/certificates/data`);
             return '';
         }
     };

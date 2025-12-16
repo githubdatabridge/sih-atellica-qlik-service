@@ -18,7 +18,7 @@ export class ConfigService {
         APP_NAME: 'SihQlikService',
 
         // Qlik certificates (paths relative to project root)
-        QS_CERT_TYPE: 'pfx',  // ca | pfx
+        QS_CERT_TYPE: 'pfx', // ca | pfx
         QS_CA_PATH: '../certificates/qlik/root.pem',
         QS_KEY_PATH: '../certificates/qlik/client_key.pem',
         QS_CERT_PATH: '../certificates/qlik/client.pem',
@@ -30,7 +30,8 @@ export class ConfigService {
         QS_REPOSITORY_USER_DIRECTORY: 'INTERNAL',
         QS_ENGINE_USER_ID: 'sa_api',
         QS_ENGINE_USER_DIRECTORY: 'INTERNAL',
-        API_KEY: 'f919861d-dda2-442e-b238-fee4f417445ba f919861d-dda2-442e-b238-fee4f417445bc',
+        API_KEY:
+            'f919861d-dda2-442e-b238-fee4f417445ba f919861d-dda2-442e-b238-fee4f417445bc',
         QLIK_CERT_PASSPHRASE: null,
 
         // Logging
@@ -59,7 +60,7 @@ export class ConfigService {
         // SSL certificates (paths relative to project root)
         SERVER_CERT_PATH: '../certificates/server/',
         SERVER_CERT_FILE_NAME: 'server.crt',
-        SERVER_KEY_FILE_NAME: 'server.key'
+        SERVER_KEY_FILE_NAME: 'server.key',
     };
 
     constructor() {
@@ -78,7 +79,7 @@ export class ConfigService {
         return !isBool
             ? process.env[value]
             : process.env[value] === 'false'
-            ? false
-            : true;
+              ? false
+              : true;
     }
 }

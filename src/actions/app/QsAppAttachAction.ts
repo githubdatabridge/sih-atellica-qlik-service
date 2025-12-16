@@ -20,11 +20,15 @@ export class QsAppAttachAction extends BaseAction<Entities.QlikAppAttachActionRe
         requestData: Entities.QlikAppAttachActionRequest
     ): Promise<Entities.QlikAppAttachActionResponse> {
         try {
-            this.logService.get().info(`File "${requestData.fileName}" read. Now posting ...`);
-            this.logService.get().info(
-                'post: ',
-                `appcontent/${appId}/uploadfile?externalpath=${requestData.fileName}&overwrite=true`
-            );
+            this.logService
+                .get()
+                .info(`File "${requestData.fileName}" read. Now posting ...`);
+            this.logService
+                .get()
+                .info(
+                    'post: ',
+                    `appcontent/${appId}/uploadfile?externalpath=${requestData.fileName}&overwrite=true`
+                );
 
             const resultAttachFile = await this.qrsService.postResource(
                 {

@@ -7,7 +7,10 @@ import * as Lib from '../../lib';
 @injectable()
 @autoInjectable()
 export class QsAppRemoveAction extends BaseAction<Entities.QlikAppRemoveResponse> {
-    constructor(private qrsService?: QrsService,private logService?: LogService) {
+    constructor(
+        private qrsService?: QrsService,
+        private logService?: LogService
+    ) {
         super();
     }
 
@@ -21,14 +24,16 @@ export class QsAppRemoveAction extends BaseAction<Entities.QlikAppRemoveResponse
         );
 
         if (appFound.body.length == 0) {
-            this.logService.get().error(`App ${requestData.qsAppGuid} not found`, [
-                {
-                    info: {
-                        method: 'QsAppRemoveAction@run',
-                        request: JSON.stringify(requestData),
+            this.logService
+                .get()
+                .error(`App ${requestData.qsAppGuid} not found`, [
+                    {
+                        info: {
+                            method: 'QsAppRemoveAction@run',
+                            request: JSON.stringify(requestData),
+                        },
                     },
-                },
-            ]);
+                ]);
             throw new Lib.Errors.NotFoundError(
                 `App ${requestData.qsAppGuid} not found`,
                 {
@@ -37,17 +42,19 @@ export class QsAppRemoveAction extends BaseAction<Entities.QlikAppRemoveResponse
                 }
             );
         } else if (!appFound.body[0].published) {
-            this.logService.get().error(
-                `App ${requestData.qsAppGuid} is not published to a stream`,
-                [
-                    {
-                        info: {
-                            method: 'QsAppRemoveAction@run',
-                            request: JSON.stringify(requestData),
+            this.logService
+                .get()
+                .error(
+                    `App ${requestData.qsAppGuid} is not published to a stream`,
+                    [
+                        {
+                            info: {
+                                method: 'QsAppRemoveAction@run',
+                                request: JSON.stringify(requestData),
+                            },
                         },
-                    },
-                ]
-            );
+                    ]
+                );
             throw new Lib.Errors.NotFoundError(
                 `App ${requestData.qsAppGuid} is not published to a stream`,
                 { method: 'QsAppRemoveAction@run', request: requestData }

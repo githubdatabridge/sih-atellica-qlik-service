@@ -1,4 +1,4 @@
-import { get, put, del, post, controller, options } from 'hapi-decorators';
+import { del, post, controller, options } from 'hapi-decorators';
 import { Boom } from '@hapi/boom';
 
 import { BaseController } from './BaseController';
@@ -24,7 +24,7 @@ export class QpsController extends BaseController {
     })
     @post('/ticket/authentication')
     async getTicket(request: Request, h: ResponseToolkit) {
-        let r = await this.qpsService.authTicket(
+        const r = await this.qpsService.authTicket(
             request.payload['userInfo'],
             request.payload['qsInfo'],
             request.payload['redirectUrl']
@@ -71,7 +71,7 @@ export class QpsController extends BaseController {
         },
     })
     @post('/session/{id}')
-    async getSession(request: Request, h: ResponseToolkit) {
+    async getSession(request: Request, _h: ResponseToolkit) {
         return {
             qps: await this.qpsService.getSession(
                 request.params.id,
@@ -92,7 +92,7 @@ export class QpsController extends BaseController {
         },
     })
     @del('/session/{id}')
-    async deleteSession(request: Request, h: ResponseToolkit) {
+    async deleteSession(request: Request, _h: ResponseToolkit) {
         return {
             qps: await this.qpsService.deleteSession(
                 request.params.id,
@@ -113,7 +113,7 @@ export class QpsController extends BaseController {
         },
     })
     @post('/session/exists/{id}')
-    async existsSession(request: Request, h: ResponseToolkit) {
+    async existsSession(request: Request, _h: ResponseToolkit) {
         return {
             qps: await this.qpsService.existsSession(
                 request.params.id,

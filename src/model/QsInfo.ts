@@ -1,4 +1,4 @@
-class QsInfo {
+export class QsInfo {
     private _host: string;
     private _port: number;
     private _vp: string;

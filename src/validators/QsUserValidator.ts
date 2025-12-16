@@ -1,5 +1,4 @@
 import * as Joi from 'joi';
-import * as Entities from '../entities';
 import { qsSchema, userSchema } from './QsValidator';
 
 const customPropertyDefinitionSchema = Joi.object({
@@ -17,7 +16,7 @@ const customPropertyDefinitionSchema = Joi.object({
         .allow(null),
 }).label('QsCustomPropertyDefinitionSchema');
 
-const customPropertySchema = Joi.object({
+const _customPropertySchema = Joi.object({
     id: Joi.string().guid().required(),
     createdDate: Joi.date().required(),
     modifiedDate: Joi.date().required(),

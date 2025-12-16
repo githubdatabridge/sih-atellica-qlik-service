@@ -1,6 +1,5 @@
 import { injectable } from 'tsyringe';
-import {Boom} from '@hapi/boom';
-import * as utils from '../utils/common';
+import { Boom } from '@hapi/boom';
 import { QixObjectMetaInfo } from '../entities/QixEntities';
 
 const FIELD_TYPES = {
@@ -45,7 +44,7 @@ export class DataService {
                 types.push(MEASURE_TYPES[measure.qNumFormat.qType]);
             });
             qGrandTotalRow.forEach((value, i) => {
-                let resVal = {};
+                const resVal = {};
 
                 if (value.hasOwnProperty('qIsNull') && value.qIsNull) {
                     resVal[names[i]] = null;
@@ -84,7 +83,7 @@ export class DataService {
             });
 
             qData.forEach((row) => {
-                let resVal = {};
+                const resVal = {};
                 row.forEach((value, i) => {
                     if (value.hasOwnProperty('qIsNull') && value.qIsNull) {
                         resVal[names[i]] = null;
@@ -137,7 +136,7 @@ export class DataService {
 
     filterArray(arr: any[]) {
         return arr.filter((el) => {
-            return (el.qState === 'S');
+            return el.qState === 'S';
         });
     }
 

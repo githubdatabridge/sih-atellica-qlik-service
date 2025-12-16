@@ -1,4 +1,4 @@
-import { get, put, del, post, controller, options } from 'hapi-decorators';
+import { put, del, post, controller, options } from 'hapi-decorators';
 import { BaseController } from './BaseController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
 import { autoInjectable } from 'tsyringe';
@@ -23,7 +23,7 @@ export class QrsController extends BaseController {
     })
     @post('/get')
     async get(request: Request, h: ResponseToolkit) {
-        let r = await this.qrsService.getResource(
+        const r = await this.qrsService.getResource(
             request.payload['userInfo'],
             request.payload['qsInfo'],
             request.payload['command']
@@ -40,7 +40,7 @@ export class QrsController extends BaseController {
     })
     @put('/put')
     async put(request: Request, h: ResponseToolkit) {
-        let r = await this.qrsService.putResource(
+        const r = await this.qrsService.putResource(
             request.payload['userInfo'],
             request.payload['qsInfo'],
             request.payload['command'],
@@ -58,7 +58,7 @@ export class QrsController extends BaseController {
     })
     @del('/delete')
     async delete(request: Request, h: ResponseToolkit) {
-        let r = await this.qrsService.deleteResource(
+        const r = await this.qrsService.deleteResource(
             request.payload['userInfo'],
             request.payload['qsInfo'],
             request.payload['command']
@@ -75,7 +75,7 @@ export class QrsController extends BaseController {
     })
     @post('/post')
     async post(request: Request, h: ResponseToolkit) {
-        let r = await this.qrsService.postResource(
+        const r = await this.qrsService.postResource(
             request.payload['userInfo'],
             request.payload['qsInfo'],
             request.payload['command'],
@@ -94,7 +94,7 @@ export class QrsController extends BaseController {
         },
     })
     @post('/alive')
-    async isAlive(request: Request, h: ResponseToolkit) {
+    async isAlive(request: Request, _h: ResponseToolkit) {
         return await this.qrsService.isAlive(request.payload['qsInfo']);
     }
 }

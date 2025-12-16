@@ -2,7 +2,7 @@ import * as Joi from 'joi';
 
 const appSchema = Joi.string();
 const userIdSchema = Joi.string();
-const customerIdSchema = Joi.string();
+const _customerIdSchema = Joi.string();
 const userDirectorySchema = Joi.string();
 const sslSchema = Joi.boolean().default(true);
 const hostSchema = Joi.string();
@@ -29,7 +29,7 @@ const limitSchema = Joi.number().integer();
 const commandSchema = Joi.string();
 const payloadSchema = Joi.object().label('QsPayloadRequest');
 
-const settingSchema = Joi.object({
+const _settingSchema = Joi.object({
     clearInvalid: Joi.boolean().optional(),
     domain: Joi.string().optional(),
     isHttpOnly: Joi.boolean().optional(),

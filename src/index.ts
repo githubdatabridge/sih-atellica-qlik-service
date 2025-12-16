@@ -38,7 +38,7 @@ const swaggerConfig: HapiSwagger.RegisterOptions = {
         version: configService.get('VERSION'),
     },
     ...gateway, //uncomment to enable gateway for swagger
-    
+
     securityDefinitions: {
         apiKey: {
             type: 'apiKey',
@@ -158,7 +158,7 @@ const init = async () => {
 
     await setupServerPlugins(server);
     setupControllers(server);
-    certService.init()
+    certService.init();
     await server.start();
     logService.get().info(`Server running on ${server.info.uri}`);
     setupLogs(server);

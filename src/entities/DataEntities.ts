@@ -1,16 +1,9 @@
 export interface DataHeaderResponse {
-    header?:string[];
-  
+    header?: string[];
 }
 
-export interface DataResponse {
-  
-}
+export interface DataResponse {}
 
-export interface DataTotalResponse {
+export interface DataTotalResponse {}
 
-}
-
-export interface DataMetaResponse {
-
-}
+export interface DataMetaResponse {}

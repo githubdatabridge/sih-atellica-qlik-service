@@ -128,24 +128,20 @@ export class QsAppController extends BaseController {
     @post('/copy')
     @Lib.Errors.handleError
     async setCopyDesign(request: Request) {
-        try {
-            const query = request.query as any;
-            const payload = request.payload as any;
+        const query = request.query as any;
+        const payload = request.payload as any;
 
-            return await this.qsAppCopyDesignAction.run({
-                qsHost: payload.qsInfo.host,
-                qrsPort: payload.qsInfo.qrsPort,
-                qixPort: payload.qsInfo.qixPort,
-                qixUserInfo: payload.qsInfo.qixUserInfo,
-                qrsUserInfo: payload.qsInfo.qrsUserInfo,
-                fromApp: query.fromApp.toString(),
-                toApps: query.toApps.toString(),
-                copyScript: query.copyScript,
-                connection: query.connection,
-            });
-        } catch (error) {
-            throw error;
-        }
+        return await this.qsAppCopyDesignAction.run({
+            qsHost: payload.qsInfo.host,
+            qrsPort: payload.qsInfo.qrsPort,
+            qixPort: payload.qsInfo.qixPort,
+            qixUserInfo: payload.qsInfo.qixUserInfo,
+            qrsUserInfo: payload.qsInfo.qrsUserInfo,
+            fromApp: query.fromApp.toString(),
+            toApps: query.toApps.toString(),
+            copyScript: query.copyScript,
+            connection: query.connection,
+        });
     }
     // /app/attach -----------------------------------------------------------------------------
     @options({
@@ -170,21 +166,16 @@ export class QsAppController extends BaseController {
     @post('/attach')
     @Lib.Errors.handleError
     async attach(request: Request) {
-        try {
-            const appId = request.query.appId.toString();
-            const payload =
-                request.payload as Entities.QlikAppAttachActionRequest;
+        const appId = request.query.appId.toString();
+        const payload = request.payload as Entities.QlikAppAttachActionRequest;
 
-            return await this.qsAppAttachAction.run(appId, {
-                file: payload.file,
-                qsInfo: payload.qsInfo,
-                qrsUserInfo: payload.qrsUserInfo,
+        return await this.qsAppAttachAction.run(appId, {
+            file: payload.file,
+            qsInfo: payload.qsInfo,
+            qrsUserInfo: payload.qrsUserInfo,
 
-                fileName: payload.fileName.toString(),
-            });
-        } catch (error) {
-            throw error;
-        }
+            fileName: payload.fileName.toString(),
+        });
     }
     // /app/remove attachment ----------------------------------------------------------------------
     @options({
@@ -214,19 +205,15 @@ export class QsAppController extends BaseController {
     @del('/remove/attachment')
     @Lib.Errors.handleError
     async removeAttachment(request: Request) {
-        try {
-            const appId = request.query.appId as string;
-            const payload =
-                request.payload as Entities.QlikAppRemoveAttachmentActionRequest;
+        const appId = request.query.appId as string;
+        const payload =
+            request.payload as Entities.QlikAppRemoveAttachmentActionRequest;
 
-            return await this.qsAppRemoveAttachmentAction.run(appId, {
-                qsInfo: payload.qsInfo,
-                qrsUserInfo: payload.qrsUserInfo,
-                fileName: payload.fileName,
-            });
-        } catch (error) {
-            throw error;
-        }
+        return await this.qsAppRemoveAttachmentAction.run(appId, {
+            qsInfo: payload.qsInfo,
+            qrsUserInfo: payload.qrsUserInfo,
+            fileName: payload.fileName,
+        });
     }
 
     // /app/filter app----- ----------------------------------------------------------------------
@@ -259,16 +246,11 @@ export class QsAppController extends BaseController {
     @post('/filter')
     @Lib.Errors.handleError
     async filter(request: Request) {
-        try {
-            const filter = request.query.filter as string;
-            const requestData =
-                request.payload as Entities.QlikAppFilterRequest;
-            requestData.filter = filter;
+        const filter = request.query.filter as string;
+        const requestData = request.payload as Entities.QlikAppFilterRequest;
+        requestData.filter = filter;
 
-            return await this.qsAppFindAppIdByFilterAction.run(requestData);
-        } catch (error) {
-            throw error;
-        }
+        return await this.qsAppFindAppIdByFilterAction.run(requestData);
     }
 
     // /app/tag app----- ----------------------------------------------------------------------
@@ -301,13 +283,9 @@ export class QsAppController extends BaseController {
     @post('/tag')
     @Lib.Errors.handleError
     async findAppByTagName(request: Request) {
-        try {
-            const tagName = request.query.tag as string;
-            const requestData = request.payload as Entities.QlikAppByTagRequest;
-            requestData.tagName = tagName;
-            return await this.qsAppFindAppIdByTagAction.run(requestData);
-        } catch (error) {
-            throw error;
-        }
+        const tagName = request.query.tag as string;
+        const requestData = request.payload as Entities.QlikAppByTagRequest;
+        requestData.tagName = tagName;
+        return await this.qsAppFindAppIdByTagAction.run(requestData);
     }
 }

@@ -62,8 +62,8 @@ export interface QixObjectMetaInfo {
     visualization: string;
 }
 
-export interface QixSessionResponse { }
+export interface QixSessionResponse {}
 
-export interface QixAppFieldSelectionResponse { }
+export interface QixAppFieldSelectionResponse {}
 
-export interface QixObjectDataResponse { }
+export interface QixObjectDataResponse {}

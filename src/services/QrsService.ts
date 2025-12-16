@@ -25,7 +25,7 @@ export class QrsService {
     ): Promise<any> {
         let r = null;
         try {
-            let config = this.getConfig(userInfo, qsInfo);
+            const config = this.getConfig(userInfo, qsInfo);
             const qrsInteractInstance = new qrsInteract(config);
 
             r = await qrsInteractInstance.Get(command);
@@ -43,7 +43,7 @@ export class QrsService {
     ): Promise<any> {
         let r = null;
         try {
-            let config = this.getConfig(userInfo, qsInfo);
+            const config = this.getConfig(userInfo, qsInfo);
             const qrsInteractInstance = new qrsInteract(config);
 
             r = await qrsInteractInstance.Put(command, payload, 'json');
@@ -62,7 +62,7 @@ export class QrsService {
     ): Promise<any> {
         let r = null;
         try {
-            let config = this.getConfig(userInfo, qsInfo);
+            const config = this.getConfig(userInfo, qsInfo);
             const qrsInteractInstance = new qrsInteract(config);
             r = await qrsInteractInstance.Post(command, payload, contentType);
             return r;
@@ -78,7 +78,7 @@ export class QrsService {
     ): Promise<any> {
         let r = null;
         try {
-            let config = this.getConfig(userInfo, qsInfo);
+            const config = this.getConfig(userInfo, qsInfo);
             const qrsInteractInstance = new qrsInteract(config);
 
             r = await qrsInteractInstance.Delete(command);
